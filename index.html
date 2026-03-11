@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="elevenOne AI Services – KI-Automatisierung als Service für Business-Kunden. Mieten statt bauen. Sofort einsatzbereit." />
+  <title>elevenOne AI Services – KI-Automatisierung als Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════════ -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div>
+          <span class="nav-logo-text">elevenOne</span>
+          <span class="nav-logo-sub">AI Services</span>
+        </div>
+      </a>
+
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link">Preise</a>
+        <a href="about.html" class="nav-link">Über uns</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="navLoginBtn">Anmelden</a>
+        <a href="auth.html#register" class="btn btn-primary btn-sm">Registrieren</a>
+      </div>
+
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+    <div style="margin-top: 1rem; display:flex; flex-direction:column; gap:0.75rem;">
+      <a href="auth.html" class="btn btn-ghost">Anmelden</a>
+      <a href="auth.html#register" class="btn btn-primary">Kostenlos registrieren</a>
+    </div>
+  </div>
+
+  <!-- ══ HERO ════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <canvas class="hero-canvas" id="heroCanvas" data-shader></canvas>
+    <div class="hero-gradient"></div>
+
+    <div class="hero-center">
+
+      <!-- Trust Badge -->
+      <div class="hero-trust-badge hero-d0">
+        DSGVO-konform &middot; ISO 27001 &middot; Hosting Deutschland
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-headline-center">
+        <span class="hero-hl-line hero-d1">Ihre KI&#8209;</span>
+        <span class="hero-hl-line hero-d1">Strategie.</span>
+        <span class="hero-hl-line hero-hl-gold hero-d2">Aktiviert.</span>
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="hero-subtitle hero-d3">
+        elevenOne bringt KI-Automatisierung direkt in Ihre Prozesse –
+        ohne Entwicklungsaufwand, ohne Risiko. Mieten statt bauen.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-ctas hero-d4">
+        <a href="demo.html" class="btn-hero-primary">Demo ansehen</a>
+        <a href="demo.html" class="btn-hero-secondary">Use Cases entdecken</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ VALUE PROPOSITION ═══════════════════════════════════ -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--s12);">
+        <p class="label-mono reveal">Warum elevenOne</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+          KI, die sofort arbeitet.
+        </h2>
+        <p class="body-lg reveal reveal-delay-2" style="color:var(--text-secondary);max-width:560px;margin:1.5rem auto 0;">
+          Statt monatelanger Entwicklungsprojekte mieten Sie fertige KI-Automatisierungen –
+          angepasst an Ihre Prozesse, live in 48 Stunden.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <div class="value-card reveal">
+          <div class="value-icon">⚡</div>
+          <h3 class="display-md" style="font-size:1.4rem;">Sofort<br/>einsatzbereit</h3>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">
+            Vorkonfigurierte KI-Prozesse aus unserer Bibliothek. Keine Entwickler,
+            keine langen Onboarding-Phasen. Sie konfigurieren, wir deployen.
+          </p>
+          <span class="value-number">01</span>
+        </div>
+
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">🧪</div>
+          <h3 class="display-md" style="font-size:1.4rem;">Risikofrei<br/>testen</h3>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">
+            Jeder Use Case durchläuft eine virtuelle Testphase mit Ihren echten Daten.
+            Erst nach erfolgreichen Tests geht der Prozess live.
+          </p>
+          <span class="value-number">02</span>
+        </div>
+
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">📈</div>
+          <h3 class="display-md" style="font-size:1.4rem;">Flexibel<br/>skalieren</h3>
+          <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">
+            Monatliche Laufzeiten, jederzeit kündbar oder erweiterbar.
+            Fügen Sie neue Use Cases hinzu, wenn Ihr Bedarf wächst.
+          </p>
+          <span class="value-number">03</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ WIE ES FUNKTIONIERT ═════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--s12);">
+        <p class="label-mono reveal">Der Prozess</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+          In 5 Schritten zum<br/>produktiven KI-Prozess
+        </h2>
+      </div>
+
+      <div class="process-steps reveal">
+        <div class="process-step">
+          <div class="step-number">01</div>
+          <span class="step-label">Start</span>
+          <div class="step-title">Demo<br/>erleben</div>
+          <p class="step-desc">Use Cases kostenlos und ohne Registrierung testen</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">02</div>
+          <span class="step-label">Account</span>
+          <div class="step-title">Registrieren<br/>& wählen</div>
+          <p class="step-desc">Konto anlegen und passenden Use Case mieten</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">03</div>
+          <span class="step-label">Setup</span>
+          <div class="step-title">Parameter<br/>konfigurieren</div>
+          <p class="step-desc">Use Case an Ihre spezifischen Prozesse anpassen</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">04</div>
+          <span class="step-label">Validierung</span>
+          <div class="step-title">Virtuelle<br/>Testphase</div>
+          <p class="step-desc">UC mit Ihren echten Daten virtuell validieren</p>
+        </div>
+        <div class="process-step">
+          <div class="step-number">05</div>
+          <span class="step-label">Produktion</span>
+          <div class="step-title">Live<br/>schalten</div>
+          <p class="step-desc">Nach Tests automatisch in Produktion überführen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FEATURED USE CASES ══════════════════════════════════ -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:var(--s8);gap:var(--s4);flex-wrap:wrap;">
+        <div>
+          <p class="label-mono reveal">Use Case Bibliothek</p>
+          <div class="section-divider" style="margin-top:1rem;"></div>
+          <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+            Bewährte KI-Prozesse,<br/>sofort verfügbar
+          </h2>
+        </div>
+        <a href="demo.html" class="btn btn-ghost reveal">
+          Alle 12 Use Cases →
+        </a>
+      </div>
+
+      <!-- 3 Featured UC-Karten (per JS befüllt) -->
+      <div class="uc-grid" id="featuredUCs" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+        <!-- Wird durch app.js befüllt -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ TRUST SIGNALS ═══════════════════════════════════════ -->
+  <section style="background: var(--bg-void); padding-block: var(--s8);">
+    <div class="container">
+      <div class="trust-bar reveal">
+        <div class="trust-item">
+          <div class="trust-icon">🔒</div>
+          DSGVO-konform
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🇩🇪</div>
+          Hosting in Deutschland
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">✓</div>
+          ISO 27001 zertifiziert
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">🛡</div>
+          SOC 2 Type II
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">24</div>
+          Support 24/7
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PREISMODELL-TEASER ═══════════════════════════════════ -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: var(--s8);">
+        <p class="label-mono reveal">Preismodell</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+          Transparent.<br/>Flexibel.<br/>Kalkulierbar.
+        </h2>
+        <p class="body-lg reveal reveal-delay-2" style="color:var(--text-secondary);max-width:520px;margin:1.5rem auto 0;">
+          Wie beim Firmenwagen: Sie nutzen die volle Leistung –
+          wir übernehmen Wartung, Updates und Infrastruktur.
+        </p>
+      </div>
+
+      <div class="grid-3" style="max-width:900px;margin:0 auto var(--s8);">
+        <div class="card reveal" style="text-align:center;">
+          <div class="label-mono" style="margin-bottom:0.75rem;">Starter</div>
+          <div class="display-md" style="color:var(--text-primary);margin-bottom:0.5rem;">1 Use Case</div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Monatlich kündbar, Testphase inklusive</p>
+        </div>
+        <div class="card card-elevated reveal reveal-delay-1" style="text-align:center;border-color:var(--border-active);">
+          <div class="label-mono" style="margin-bottom:0.75rem;">Professional</div>
+          <div class="display-md" style="color:var(--text-primary);margin-bottom:0.5rem;">Bis 3 UCs</div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Konfigurationssupport, Priority Support</p>
+        </div>
+        <div class="card reveal reveal-delay-2" style="text-align:center;">
+          <div class="label-mono" style="margin-bottom:0.75rem;">Enterprise</div>
+          <div class="display-md" style="color:var(--text-primary);margin-bottom:0.5rem;">Unbegrenzt</div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Dedizierter Manager, SLA-Garantie</p>
+        </div>
+      </div>
+
+      <div style="text-align:center;">
+        <a href="pricing.html" class="btn btn-secondary btn-lg reveal">Preismodell ansehen</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA BANNER ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal">
+        <p class="label-mono" style="margin-bottom:1rem;">Jetzt starten</p>
+        <h2 class="display-lg" style="margin-bottom:1.5rem;">
+          Bereit für den<br/>nächsten Schritt?
+        </h2>
+        <p style="font-size:1.05rem;color:var(--text-secondary);max-width:480px;margin:0 auto 2.5rem;font-style:italic;">
+          Registrieren Sie sich kostenlos und entdecken Sie, welche KI-Automatisierungen
+          Ihre Prozesse revolutionieren können.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <a href="auth.html#register" class="btn btn-primary btn-lg">Kostenlos registrieren</a>
+          <a href="demo.html" class="btn btn-ghost btn-lg">Demo ansehen</a>
+        </div>
+        <p class="label-mono-muted" style="margin-top:2rem;">Keine Kreditkarte erforderlich · Jederzeit kündbar</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ═══════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:1.5rem;">
+            <div class="nav-logo-mark">11</div>
+            <div>
+              <span class="nav-logo-text">elevenOne</span>
+              <span class="nav-logo-sub">AI Services</span>
+            </div>
+          </a>
+          <p>
+            KI-Automatisierung als Service für den österreichischen Mittelstand.
+            Mieten statt bauen – live in 48 Stunden.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Produkt</h4>
+          <ul>
+            <li><a href="demo.html">Demo Use Cases</a></li>
+            <li><a href="pricing.html">Preismodell</a></li>
+            <li><a href="demo.html">UC-Bibliothek</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+            <li><a href="#">Karriere</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+            <li><a href="#">Cookie-Einstellungen</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 elevenOne GmbH. Alle Rechte vorbehalten. | 🇦🇹 Gehostet in Österreich</p>
+        <p>DSGVO-konform · ISO 27001 · SOC 2 Type II</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast-Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/shader-hero.js"></script>
+</body>
+</html>

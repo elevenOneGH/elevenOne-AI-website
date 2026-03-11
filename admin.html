@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- Mobile Sidebar-Toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- ══ SIDEBAR ════════════════════════════════════════════ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark" style="background:rgba(0,229,204,0.12);border-color:rgba(0,229,204,0.3);">11</div>
+          <div>
+            <span class="nav-logo-text">elevenOne</span>
+            <span class="nav-logo-sub" style="color:var(--accent-cyan);">Admin</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Administration</div>
+        <a href="admin.html" class="sidebar-nav-item active" style="color:var(--accent-cyan);border-left-color:var(--accent-cyan);">
+          <span class="sidebar-nav-icon">⊞</span> Übersicht
+        </a>
+        <a href="dashboard.html" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">◈</span> Zum Dashboard
+        </a>
+        <a href="demo.html" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">◉</span> Use Cases
+        </a>
+
+        <div class="sidebar-section-label" style="margin-top:var(--s2);">System</div>
+        <button class="sidebar-nav-item" id="logoutBtn" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;color:var(--text-muted);">
+          <span class="sidebar-nav-icon">→</span> Abmelden
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" style="background:rgba(0,229,204,0.12);color:var(--accent-cyan);border-color:rgba(0,229,204,0.3);">AD</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-company">Administrator</div>
+            <div class="sidebar-user-email" id="adminSidebarEmail">admin@elevenone.at</div>
+          </div>
+        </div>
+        <div style="margin-top:var(--s2);">
+          <span class="admin-access-badge">⊕ Admin Access</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ══ MAIN CONTENT ════════════════════════════════════════ -->
+    <main class="dashboard-main">
+
+      <!-- Header -->
+      <div class="dashboard-header">
+        <div>
+          <div class="dashboard-greeting">Admin Panel</div>
+          <div class="dashboard-date" id="adminDate">Laden...</div>
+        </div>
+        <div style="display:flex;gap:var(--s2);">
+          <a href="dashboard.html" class="btn btn-ghost btn-sm">← Zum Dashboard</a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" style="margin-bottom:var(--s6);">
+        <div class="stat-card">
+          <div class="stat-label">Registrierte Kunden</div>
+          <div class="stat-value gold" id="adminStatUsers">–</div>
+          <div class="stat-trend">Gesamt aktive Accounts</div>
+          <div class="stat-bg-number">K</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Live Use Cases</div>
+          <div class="stat-value cyan" id="adminStatLive">–</div>
+          <div class="stat-trend">Produktiv im Betrieb</div>
+          <div class="stat-bg-number">L</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">In Testphase</div>
+          <div class="stat-value amber" id="adminStatTest">–</div>
+          <div class="stat-trend">Konfiguration / Test</div>
+          <div class="stat-bg-number">T</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Monatl. Umsatz (est.)</div>
+          <div class="stat-value gold" id="adminStatRevenue">–</div>
+          <div class="stat-trend">Live + Test UCs gesamt</div>
+          <div class="stat-bg-number">€</div>
+        </div>
+      </div>
+
+      <!-- Benutzer-Tabelle -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s3);gap:var(--s4);flex-wrap:wrap;">
+        <h2 class="display-md" style="font-size:1.3rem;">Kundenverwaltung</h2>
+        <input
+          type="search"
+          id="userSearch"
+          class="form-control"
+          placeholder="Suchen: Firma, E-Mail, Stadt..."
+          style="max-width:320px;"
+        />
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th style="width:44px;"></th>
+              <th>Firma / Name</th>
+              <th>E-Mail</th>
+              <th>Standort</th>
+              <th>Use Cases</th>
+              <th>Registriert</th>
+              <th style="width:110px;"></th>
+            </tr>
+          </thead>
+          <tbody id="userTableBody">
+            <!-- Befüllt durch admin.js -->
+          </tbody>
+        </table>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══ OVERLAY ═════════════════════════════════════════════════ -->
+  <div class="panel-overlay" id="panelOverlay"></div>
+
+  <!-- ══ EDIT PANEL ══════════════════════════════════════════════ -->
+  <div class="config-panel" id="editPanel" style="width:520px;">
+    <div class="panel-header">
+      <div>
+        <div class="label-mono-muted" style="font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:0.25rem;">Benutzer bearbeiten</div>
+        <h3 class="display-md" id="panelUserName" style="font-size:1.1rem;margin:0;"></h3>
+        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--text-muted);margin-top:0.25rem;" id="panelUserEmail"></div>
+      </div>
+      <button class="modal-close" id="panelClose">✕</button>
+    </div>
+
+    <div class="panel-body">
+
+      <!-- Stammdaten -->
+      <div class="panel-section">
+        <div class="panel-section-title">// Stammdaten</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);">
+          <div class="form-group">
+            <label class="form-label">Vorname</label>
+            <input type="text" class="form-control" id="editFirstName" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Nachname</label>
+            <input type="text" class="form-control" id="editLastName" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Firma</label>
+          <input type="text" class="form-control" id="editCompany" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">E-Mail</label>
+          <input type="email" class="form-control" id="editEmail" />
+        </div>
+      </div>
+
+      <!-- Rechnungsadresse -->
+      <div class="panel-section">
+        <div class="panel-section-title">// Rechnungsadresse</div>
+        <div class="form-group">
+          <label class="form-label">Straße &amp; Hausnummer</label>
+          <input type="text" class="form-control" id="editStreet" />
+        </div>
+        <div style="display:grid;grid-template-columns:120px 1fr;gap:var(--s2);">
+          <div class="form-group">
+            <label class="form-label">PLZ</label>
+            <input type="text" class="form-control" id="editZip" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Stadt</label>
+            <input type="text" class="form-control" id="editCity" />
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);">
+          <div class="form-group">
+            <label class="form-label">Land</label>
+            <input type="text" class="form-control" id="editCountry" placeholder="Österreich" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">USt-IdNr.</label>
+            <input type="text" class="form-control" id="editUstId" placeholder="ATU12345678" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases -->
+      <div class="panel-section">
+        <div class="panel-section-title">// Use Cases</div>
+        <div id="editPanelUCList" style="display:flex;flex-direction:column;gap:var(--s2);">
+          <!-- Befüllt durch admin.js -->
+        </div>
+      </div>
+
+      <!-- Gefahrenzone -->
+      <div class="panel-section" style="margin-bottom:0;">
+        <div class="panel-section-title" style="color:rgba(255,59,92,0.6);">// Gefahrenzone</div>
+        <button class="btn btn-sm" id="deleteUserBtn" style="background:transparent;color:#ff3b5c;border:1px solid rgba(255,59,92,0.3);width:100%;padding:0.6em;">
+          Benutzer endgültig löschen
+        </button>
+      </div>
+
+    </div>
+
+    <div class="panel-footer">
+      <div style="display:flex;gap:var(--s2);">
+        <button class="btn btn-primary" style="flex:1;" id="saveUserBtn">Änderungen speichern</button>
+        <button class="btn btn-ghost" id="cancelEditBtn">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+</html>

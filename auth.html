@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="elevenOne AI Services – Anmelden oder kostenlos registrieren." />
+  <title>Anmelden / Registrieren – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .auth-page {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: calc(var(--nav-height) + var(--s6)) var(--s4) var(--s6);
+      position: relative;
+    }
+
+    .auth-page::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 30% 50%, rgba(200,168,75,0.04) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 80% 30%, rgba(0,229,204,0.03) 0%, transparent 60%);
+    }
+
+    .auth-container {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    .auth-brand {
+      padding-top: var(--s4);
+    }
+
+    .auth-brand .label-mono {
+      margin-bottom: var(--s3);
+    }
+
+    .auth-brand h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1;
+      margin-bottom: var(--s4);
+    }
+
+    .auth-brand p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--s4);
+    }
+
+    .auth-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+      margin-top: var(--s4);
+    }
+
+    .auth-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .auth-feature-item::before {
+      content: '✓';
+      color: var(--accent-cyan);
+      font-family: var(--font-mono);
+    }
+
+    .auth-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-default);
+      border-radius: var(--r-xl);
+      overflow: hidden;
+    }
+
+    .auth-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: all var(--t-fast) ease;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+    }
+
+    .auth-tab.active {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
+
+    .auth-tab:hover:not(.active) {
+      color: var(--text-secondary);
+    }
+
+    .auth-form-panel {
+      padding: var(--s6);
+      display: none;
+    }
+
+    .auth-form-panel.active { display: block; }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: var(--s3) 0;
+    }
+
+    .auth-divider::before,
+    .auth-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-subtle);
+    }
+
+    .auth-divider span {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .billing-section {
+      margin-top: var(--s4);
+      padding-top: var(--s4);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .password-strength {
+      height: 3px;
+      background: var(--bg-surface);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-top: 0.4rem;
+    }
+
+    .password-strength-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease, background 0.3s ease;
+      width: 0%;
+    }
+
+    @media (max-width: 768px) {
+      .auth-container { grid-template-columns: 1fr; }
+      .auth-brand { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav scrolled" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link">Preise</a>
+        <a href="about.html" class="nav-link">Über uns</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-ghost btn-sm">← Zurück</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+  </div>
+
+  <main class="auth-page">
+    <div class="auth-container">
+
+      <!-- Linke Seite: Brand -->
+      <div class="auth-brand">
+        <p class="label-mono">Willkommen bei</p>
+        <h1>eleven<span style="color:var(--accent-gold);">One</span><br/>AI Services</h1>
+        <p>
+          KI-Automatisierung als Service für Ihr Unternehmen.
+          Mieten Sie fertige KI-Prozesse und schalten Sie sie
+          live – ohne Entwicklungsaufwand.
+        </p>
+
+        <div class="auth-features">
+          <div class="auth-feature-item">Kostenlos registrieren</div>
+          <div class="auth-feature-item">Keine Kreditkarte erforderlich</div>
+          <div class="auth-feature-item">Sofort Demo-Zugang zu allen 12 Use Cases</div>
+          <div class="auth-feature-item">DSGVO-konform, Hosting in Deutschland</div>
+          <div class="auth-feature-item">Jederzeit kündbar</div>
+        </div>
+      </div>
+
+      <!-- Rechte Seite: Formular -->
+      <div class="auth-card">
+        <div class="auth-tabs">
+          <button class="auth-tab active" id="tabLogin" data-tab="login">Anmelden</button>
+          <button class="auth-tab" id="tabRegister" data-tab="register">Registrieren</button>
+        </div>
+
+        <!-- LOGIN -->
+        <div class="auth-form-panel active" id="panelLogin">
+          <form id="loginForm" novalidate>
+            <div style="display:flex;flex-direction:column;gap:var(--s3);">
+
+              <div class="form-group">
+                <label class="form-label" for="loginEmail">E-Mail-Adresse</label>
+                <input type="email" id="loginEmail" class="form-control" placeholder="max@muster-gmbh.de" autocomplete="email" />
+                <span class="form-error" id="loginEmailError"></span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="loginPassword">Passwort</label>
+                <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" autocomplete="current-password" />
+                <span class="form-error" id="loginPasswordError"></span>
+              </div>
+
+              <label class="form-check">
+                <input type="checkbox" id="stayLoggedIn" />
+                <span class="form-check-label">Angemeldet bleiben</span>
+              </label>
+
+              <span class="form-error" id="loginGeneralError" style="text-align:center;"></span>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;" id="loginSubmitBtn">
+                Anmelden
+              </button>
+            </div>
+
+            <div class="auth-divider" style="margin-top:1.5rem;">
+              <span>Noch kein Konto?</span>
+            </div>
+            <button type="button" class="btn btn-ghost" style="width:100%;" id="switchToRegister">
+              Kostenlos registrieren →
+            </button>
+
+            <p style="text-align:center;margin-top:1rem;">
+              <a href="#" id="forgotPassword" style="font-family:var(--font-mono);font-size:0.72rem;color:var(--text-muted);letter-spacing:0.06em;">
+                Passwort vergessen?
+              </a>
+            </p>
+          </form>
+        </div>
+
+        <!-- REGISTRIERUNG -->
+        <div class="auth-form-panel" id="panelRegister">
+          <form id="registerForm" novalidate>
+            <div style="display:flex;flex-direction:column;gap:var(--s3);">
+
+              <div class="form-group">
+                <label class="form-label" for="regCompany">Unternehmen *</label>
+                <input type="text" id="regCompany" class="form-control" placeholder="Muster GmbH" autocomplete="organization" />
+                <span class="form-error" id="regCompanyError"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="regFirstName">Vorname *</label>
+                  <input type="text" id="regFirstName" class="form-control" placeholder="Max" autocomplete="given-name" />
+                  <span class="form-error" id="regFirstNameError"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="regLastName">Nachname *</label>
+                  <input type="text" id="regLastName" class="form-control" placeholder="Mustermann" autocomplete="family-name" />
+                  <span class="form-error" id="regLastNameError"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="regEmail">E-Mail-Adresse *</label>
+                <input type="email" id="regEmail" class="form-control" placeholder="max@muster-gmbh.de" autocomplete="email" />
+                <span class="form-error" id="regEmailError"></span>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="regPassword">Passwort *</label>
+                  <input type="password" id="regPassword" class="form-control" placeholder="Min. 8 Zeichen" autocomplete="new-password" />
+                  <div class="password-strength"><div class="password-strength-fill" id="passwordStrengthFill"></div></div>
+                  <span class="form-error" id="regPasswordError"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="regPasswordConfirm">Passwort wiederholen *</label>
+                  <input type="password" id="regPasswordConfirm" class="form-control" placeholder="••••••••" autocomplete="new-password" />
+                  <span class="form-error" id="regPasswordConfirmError"></span>
+                </div>
+              </div>
+
+              <!-- Rechnungsadresse -->
+              <div class="billing-section">
+                <h4 class="label-mono" style="margin-bottom:var(--s3);">Rechnungsadresse</h4>
+
+                <div class="form-group" style="margin-bottom:var(--s2);">
+                  <label class="form-label" for="regStreet">Straße und Hausnummer *</label>
+                  <input type="text" id="regStreet" class="form-control" placeholder="Musterstraße 42" autocomplete="street-address" />
+                  <span class="form-error" id="regStreetError"></span>
+                </div>
+
+                <div class="form-row" style="margin-bottom:var(--s2);">
+                  <div class="form-group">
+                    <label class="form-label" for="regZip">PLZ *</label>
+                    <input type="text" id="regZip" class="form-control" placeholder="80333" autocomplete="postal-code" maxlength="10" />
+                    <span class="form-error" id="regZipError"></span>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="regCity">Stadt *</label>
+                    <input type="text" id="regCity" class="form-control" placeholder="München" autocomplete="address-level2" />
+                    <span class="form-error" id="regCityError"></span>
+                  </div>
+                </div>
+
+                <div class="form-row" style="margin-bottom:0;">
+                  <div class="form-group">
+                    <label class="form-label" for="regCountry">Land *</label>
+                    <select id="regCountry" class="form-control" autocomplete="country-name">
+                      <option value="Deutschland">Deutschland</option>
+                      <option value="Österreich">Österreich</option>
+                      <option value="Schweiz">Schweiz</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="regUstIdNr">USt-IdNr. (optional)</label>
+                    <input type="text" id="regUstIdNr" class="form-control" placeholder="DE123456789" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Checkboxen -->
+              <label class="form-check">
+                <input type="checkbox" id="regAgb" required />
+                <span class="form-check-label">
+                  Ich akzeptiere die <a href="#" style="color:var(--accent-gold);">AGB</a>
+                  von elevenOne AI Services. *
+                </span>
+              </label>
+              <span class="form-error" id="regAgbError"></span>
+
+              <label class="form-check">
+                <input type="checkbox" id="regDsgvo" required />
+                <span class="form-check-label">
+                  Ich habe die <a href="#" style="color:var(--accent-gold);">Datenschutzerklärung</a>
+                  gelesen und stimme der Verarbeitung meiner Daten zu. *
+                </span>
+              </label>
+              <span class="form-error" id="regDsgvoError"></span>
+
+              <span class="form-error" id="regGeneralError" style="text-align:center;"></span>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;" id="registerSubmitBtn">
+                Konto erstellen
+              </button>
+            </div>
+
+            <div class="auth-divider" style="margin-top:1.5rem;">
+              <span>Bereits registriert?</span>
+            </div>
+            <button type="button" class="btn btn-ghost" style="width:100%;" id="switchToLogin">
+              Zur Anmeldung →
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/auth.js"></script>
+</body>
+</html>

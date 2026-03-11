@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="elevenOne AI Services – Transparentes Preismodell. KI-Automatisierung mieten statt kaufen." />
+  <title>Preismodell – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .lifecycle-timeline {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .lifecycle-step {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .lifecycle-step::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-gold-dim), transparent);
+      z-index: -1;
+    }
+
+    .lifecycle-step:last-child::after { display: none; }
+
+    .lifecycle-dot {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: var(--s2);
+      background: var(--bg-surface);
+    }
+
+    .lifecycle-dot.demo   { border-color: var(--text-muted); color: var(--text-muted); }
+    .lifecycle-dot.test   { border-color: var(--accent-amber); color: var(--accent-amber); }
+    .lifecycle-dot.live   { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+
+    .analogy-box {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-default);
+      border-left: 4px solid var(--accent-gold);
+      border-radius: var(--r-md);
+      padding: var(--s4) var(--s6);
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    @media (max-width: 600px) {
+      .lifecycle-timeline { flex-direction: column; gap: var(--s3); }
+      .lifecycle-step::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link active">Preise</a>
+        <a href="about.html" class="nav-link">Über uns</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="navLoginBtn">Anmelden</a>
+        <a href="auth.html#register" class="btn btn-primary btn-sm">Registrieren</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="auth.html" class="btn btn-ghost">Anmelden</a>
+      <a href="auth.html#register" class="btn btn-primary">Kostenlos registrieren</a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <canvas class="page-hero-canvas" data-shader></canvas>
+    <div class="container">
+      <p class="label-mono reveal">Preismodell</p>
+      <div class="section-divider centered" style="margin-top:1rem;"></div>
+      <h1 class="display-xl reveal reveal-delay-1" style="margin-top:1.5rem;">
+        <span class="ph-hl-white">Transparent.</span><br/>
+        <span class="ph-hl-white">Flexibel.</span><br/>
+        <span class="ph-hl-gold">Kalkulierbar.</span>
+      </h1>
+      <p class="body-lg reveal reveal-delay-2" style="color:var(--text-secondary);max-width:520px;margin:1.5rem auto 0;">
+        KI-Automatisierung ohne Investitionsrisiko. Mieten Sie was Sie brauchen –
+        kündigen Sie wenn Sie wollen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Das Mietmodell erklärt -->
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <h2 class="display-md reveal" style="margin-bottom:var(--s4);">Das AIaaS-Mietmodell</h2>
+        <p class="analogy-box reveal reveal-delay-1">
+          „Wie bei einem Firmenwagen: Sie nutzen die volle Leistung unserer KI-Prozesse –
+          wir übernehmen Wartung, Updates, Infrastruktur und Support.
+          Kein Aufwand, kein Risiko, volle Kontrolle."
+        </p>
+      </div>
+
+      <div class="grid-3" style="max-width:900px;margin:0 auto;">
+        <div class="card reveal" style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--s2);">🚫</div>
+          <h4 class="label-mono" style="color:var(--accent-red);margin-bottom:0.75rem;">Kein</h4>
+          <ul style="font-size:0.875rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.5rem;">
+            <li>Entwicklungsaufwand</li>
+            <li>Infrastrukturinvestition</li>
+            <li>IT-Personal erforderlich</li>
+            <li>Langfristige Bindung</li>
+          </ul>
+        </div>
+        <div class="card card-elevated reveal reveal-delay-1" style="text-align:center;border-color:var(--border-active);">
+          <div style="font-size:2rem;margin-bottom:var(--s2);">✓</div>
+          <h4 class="label-mono" style="color:var(--accent-cyan);margin-bottom:0.75rem;">Inbegriffen</h4>
+          <ul style="font-size:0.875rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.5rem;">
+            <li>Setup & Konfiguration</li>
+            <li>Hosting & Skalierung</li>
+            <li>Updates & Wartung</li>
+            <li>Testphase & Support</li>
+          </ul>
+        </div>
+        <div class="card reveal reveal-delay-2" style="text-align:center;">
+          <div style="font-size:2rem;margin-bottom:var(--s2);">📊</div>
+          <h4 class="label-mono" style="color:var(--accent-gold);margin-bottom:0.75rem;">Sie erhalten</h4>
+          <ul style="font-size:0.875rem;color:var(--text-secondary);display:flex;flex-direction:column;gap:0.5rem;">
+            <li>Produktiver KI-Prozess</li>
+            <li>Echtzeit-Monitoring</li>
+            <li>Monatliche Berichte</li>
+            <li>Anpassungsflexibilität</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Tiers -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <h2 class="display-lg reveal">Pakete & Preise</h2>
+        <p class="reveal reveal-delay-1" style="color:var(--text-secondary);margin-top:1rem;">
+          Alle Pakete beinhalten: Konfiguration, Testphase, Hosting, Monitoring
+        </p>
+      </div>
+
+      <div class="grid-3" style="max-width:1000px;margin:0 auto;align-items:start;">
+
+        <!-- Starter -->
+        <div class="pricing-card reveal">
+          <div class="pricing-tier">Starter</div>
+          <div class="pricing-name">Starter</div>
+          <div class="pricing-price">
+            ab 149 <span>EUR / Monat</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Für einzelne Prozessautomatisierungen</p>
+          <div class="divider"></div>
+          <ul class="pricing-features">
+            <li>1 Use Case aktiv</li>
+            <li>Virtuelle Testphase (5 Läufe)</li>
+            <li>Konfigurationsassistent</li>
+            <li>E-Mail-Support (Werktage)</li>
+            <li>Monatliches Report-PDF</li>
+            <li>DSGVO-konformes Hosting</li>
+            <li>Monatlich kündbar</li>
+          </ul>
+          <a href="auth.html#register" class="btn btn-secondary" style="width:100%;margin-top:auto;">Starter wählen</a>
+        </div>
+
+        <!-- Professional (featured) -->
+        <div class="pricing-card featured reveal reveal-delay-1">
+          <div class="pricing-featured-label">Empfohlen</div>
+          <div class="pricing-tier">Professional</div>
+          <div class="pricing-name">Professional</div>
+          <div class="pricing-price">
+            ab 399 <span>EUR / Monat</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Für wachsende Automatisierungsanforderungen</p>
+          <div class="divider"></div>
+          <ul class="pricing-features">
+            <li>Bis 3 Use Cases aktiv</li>
+            <li>Unbegrenzte Testläufe</li>
+            <li>Persönlicher Konfigurationssupport</li>
+            <li>Priority-Support (4h Reaktionszeit)</li>
+            <li>Wöchentliche Performance-Reports</li>
+            <li>API-Integrationsunterstützung</li>
+            <li>Custom Parameter-Anpassungen</li>
+            <li>Monatlich kündbar</li>
+          </ul>
+          <a href="auth.html#register" class="btn btn-primary" style="width:100%;margin-top:auto;">Professional wählen</a>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-tier">Enterprise</div>
+          <div class="pricing-name">Enterprise</div>
+          <div class="pricing-price">
+            Auf <span>Anfrage</span>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);">Für komplexe Unternehmensanforderungen</p>
+          <div class="divider"></div>
+          <ul class="pricing-features">
+            <li>Unbegrenzte Use Cases</li>
+            <li>Dedizierter Account Manager</li>
+            <li>SLA-Garantie (99,9% Uptime)</li>
+            <li>24/7 Premium-Support</li>
+            <li>Custom UC-Entwicklung möglich</li>
+            <li>On-Premise-Deployment möglich</li>
+            <li>SSO / Active Directory</li>
+            <li>Individuelle Laufzeiten</li>
+          </ul>
+          <a href="contact.html" class="btn btn-secondary" style="width:100%;margin-top:auto;">Kontakt aufnehmen</a>
+        </div>
+      </div>
+
+      <p class="label-mono-muted" style="text-align:center;margin-top:var(--s6);">
+        * Alle Preise zzgl. gesetzlicher MwSt. Preise variieren je nach gewähltem Use Case.
+      </p>
+    </div>
+  </section>
+
+  <!-- UC Lifecycle -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <p class="label-mono reveal">So funktioniert es</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+          Der Use Case Lifecycle
+        </h2>
+      </div>
+
+      <div class="lifecycle-timeline reveal">
+        <div class="lifecycle-step">
+          <div class="lifecycle-dot demo">👁</div>
+          <span class="badge badge-demo" style="margin-bottom:0.75rem;">Demo</span>
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:0.5rem;">Demo erleben</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary);">Kostenlos testen, keine Registrierung nötig</p>
+        </div>
+        <div class="lifecycle-step">
+          <div class="lifecycle-dot demo" style="border-color:var(--accent-gold);color:var(--accent-gold);">⚙</div>
+          <span class="badge badge-new" style="margin-bottom:0.75rem;">Setup</span>
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:0.5rem;">Konfigurieren</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary);">Parameter für Ihre Prozesse einstellen</p>
+        </div>
+        <div class="lifecycle-step">
+          <div class="lifecycle-dot test">🧪</div>
+          <span class="badge badge-test" style="margin-bottom:0.75rem;">Test</span>
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:0.5rem;">Testphase</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary);">Virtueller Test mit Ihren echten Daten (5 Läufe)</p>
+        </div>
+        <div class="lifecycle-step">
+          <div class="lifecycle-dot live">✓</div>
+          <span class="badge badge-live" style="margin-bottom:0.75rem;">Live</span>
+          <h4 style="font-family:var(--font-display);font-size:1rem;margin-bottom:0.5rem;">Produktivbetrieb</h4>
+          <p style="font-size:0.8rem;color:var(--text-secondary);">Automatisierung läuft produktiv, 24/7</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container" style="max-width:760px;">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <p class="label-mono reveal">FAQ</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">Häufige Fragen</h2>
+      </div>
+
+      <div id="faqList" class="reveal reveal-delay-1">
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Wie lange dauert es, bis ein Use Case produktiv läuft?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Nach der Registrierung können Sie einen Use Case sofort konfigurieren.
+              Die Testphase umfasst typischerweise 3–5 Testläufe (1–2 Tage).
+              Nach Freigabe ist der Use Case innerhalb von 24 Stunden produktiv.
+              Das Gesamtzeitfenster liegt damit bei 48–72 Stunden.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Wie werden meine Daten verarbeitet und gespeichert?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Alle Daten werden ausschließlich auf deutschen Servern (ISO 27001, SOC 2) verarbeitet.
+              Verarbeitungsdaten werden nach der Verarbeitung automatisch gelöscht.
+              Sie schließen mit uns einen Auftragsverarbeitungsvertrag (AVV) gemäß DSGVO ab.
+              Ihre Daten werden niemals für Training oder andere Zwecke verwendet.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Kann ich den Use Case jederzeit kündigen oder wechseln?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ja. Alle Pakete sind monatlich kündbar (Kündigung bis zum 25. des Vormonats).
+              Sie können Use Cases jederzeit deaktivieren und neue hinzufügen.
+              Bei Enterprise-Paketen gelten die individuell vereinbarten Laufzeiten.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Welche technischen Voraussetzungen benötige ich?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Die meisten Use Cases benötigen nur Zugang zu einem E-Mail-Postfach oder einer API-URL.
+              Für tiefere ERP/CRM-Integrationen unterstützt unser Team Sie bei der Anbindung.
+              Es ist keine lokale Software-Installation oder IT-Infrastruktur erforderlich.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Gibt es eine kostenlose Testphase?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Die Demo-Use-Cases sind ohne Registrierung kostenlos testbar.
+              Nach der Registrierung erhalten Sie sofort Demo-Zugang zu den ersten 3 Use Cases
+              Ihrer Wahl. Die Testphase mit Ihren eigenen Daten ist in allen Paketen inbegriffen.
+              Eine separate kostenlose Testversion des vollen Betriebs bieten wir derzeit nicht an.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Wie erfolgt die Abrechnung?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Die Abrechnung erfolgt monatlich per SEPA-Lastschrift oder Kreditkarte.
+              Rechnungen werden automatisch an Ihre hinterlegte Rechnungsadresse per E-Mail gesendet.
+              Enterprise-Kunden können auch Quartals- oder Jahresrechnungen erhalten.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Was ist, wenn ein Use Case nicht wie erwartet funktioniert?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Dafür gibt es die Testphase. Bei Problemen arbeiten wir mit Ihnen gemeinsam an der
+              Konfiguration. Sollte ein Use Case nach 3 Testläufen nicht zufriedenstellend funktionieren,
+              erhalten Sie eine vollständige Rückerstattung des ersten Monatsbeitrags.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            Kann ich eigene Use Cases entwickeln lassen?
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Ja, im Enterprise-Paket können individuelle Use Cases nach Ihren Anforderungen
+              entwickelt und in unsere Plattform integriert werden. Sprechen Sie uns an für
+              ein unverbindliches Beratungsgespräch.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal" style="text-align:center;">
+        <h2 class="display-lg" style="margin-bottom:1.5rem;">Bereit anzufangen?</h2>
+        <p style="color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-style:italic;">
+          Registrieren Sie sich kostenlos und starten Sie mit Ihrer ersten KI-Automatisierung.
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <a href="auth.html#register" class="btn btn-primary btn-lg">Kostenlos starten</a>
+          <a href="contact.html" class="btn btn-ghost btn-lg">Beratungsgespräch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:1.5rem;">
+            <div class="nav-logo-mark">11</div>
+            <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+          </a>
+          <p>KI-Automatisierung als Service für den österreichischen Mittelstand.</p>
+        </div>
+        <div class="footer-col"><h4>Produkt</h4><ul><li><a href="demo.html">Demo Use Cases</a></li><li><a href="pricing.html">Preismodell</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+        <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="about.html">Über uns</a></li><li><a href="contact.html">Kontakt</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+        <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">AGB</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 elevenOne GmbH. Alle Rechte vorbehalten. | 🇦🇹 Gehostet in Österreich</p>
+        <p>DSGVO-konform · ISO 27001 · SOC 2 Type II</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/shader-hero.js"></script>
+  <script>
+    // FAQ-Accordion
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>

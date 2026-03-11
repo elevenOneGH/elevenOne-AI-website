@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="elevenOne Blog – KI-Automatisierung für den österreichischen Mittelstand. Praxisberichte, Einblicke und Expertenwissen zu KI-Prozessen als Service." />
+  <title>Blog – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      margin-bottom: var(--s4);
+      flex-wrap: wrap;
+    }
+
+    .article-category {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      background: var(--accent-gold-glow);
+      border: 1px solid rgba(200,168,75,0.2);
+      padding: 0.3em 0.9em;
+      border-radius: var(--r-sm);
+    }
+
+    .article-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+    }
+
+    .article-body {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--text-secondary);
+    }
+
+    .article-body p { margin-bottom: 1.4rem; }
+
+    .article-body h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin: 2.5rem 0 1rem;
+    }
+
+    .article-body strong {
+      color: var(--text-primary);
+      font-weight: 500;
+    }
+
+    .article-body .highlight {
+      border-left: 2px solid var(--accent-gold);
+      padding-left: var(--s3);
+      color: rgba(200, 168, 75, 0.85);
+      font-style: italic;
+      margin: 2rem 0;
+    }
+
+    .article-body .word-count {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: var(--s6);
+      padding-top: var(--s3);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Sidebar */
+    .blog-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--s4));
+      display: flex;
+      flex-direction: column;
+      gap: var(--s4);
+    }
+
+    .sidebar-widget {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-lg);
+      padding: var(--s4);
+    }
+
+    .sidebar-widget-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: var(--s3);
+    }
+
+    .sidebar-uc-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+    }
+
+    .sidebar-uc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--s2) 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.85rem;
+    }
+
+    .sidebar-uc-item:last-child { border-bottom: none; }
+
+    .sidebar-uc-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .author-box {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+      padding: var(--s4);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-lg);
+      margin-top: var(--s6);
+    }
+
+    .author-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--r-md);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .author-name {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .author-role {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-sidebar {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAVIGATION ══════════════════════════════════════════ -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div>
+          <span class="nav-logo-text">elevenOne</span>
+          <span class="nav-logo-sub">AI Services</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link">Preise</a>
+        <a href="about.html" class="nav-link">Über uns</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="navLoginBtn">Anmelden</a>
+        <a href="auth.html#register" class="btn btn-primary btn-sm">Registrieren</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="auth.html" class="btn btn-ghost">Anmelden</a>
+      <a href="auth.html#register" class="btn btn-primary">Kostenlos registrieren</a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <canvas class="page-hero-canvas" data-shader></canvas>
+    <div class="container">
+      <p class="label-mono reveal">Blog &amp; Insights</p>
+      <div class="section-divider centered" style="margin-top:1rem;"></div>
+      <h1 class="display-xl reveal reveal-delay-1" style="margin-top:1.5rem;">
+        <span class="ph-hl-white">KI-Wissen</span><br/>
+        <span class="ph-hl-gold">für die Praxis.</span>
+      </h1>
+      <p class="body-lg reveal reveal-delay-2" style="color:var(--text-secondary);max-width:520px;margin:1.5rem auto 0;">
+        Einblicke, Praxisberichte und Expertenwissen rund um
+        KI-Automatisierung im österreichischen Mittelstand.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ BLOG-INHALT ══════════════════════════════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="blog-grid">
+
+        <!-- ── Hauptartikel ──────────────────────────────────── -->
+        <article>
+
+          <div class="article-meta">
+            <span class="article-category">KI-Strategie</span>
+            <span class="article-date">März 2026</span>
+            <span class="article-date">// 5 Min. Lesezeit</span>
+          </div>
+
+          <h1 class="display-lg reveal" style="margin-bottom:var(--s4);">
+            KI im österreichischen Mittelstand:<br/>
+            Warum „Mieten statt Bauen" jetzt der<br/>
+            <span style="color:var(--accent-gold);">entscheidende Vorteil ist</span>
+          </h1>
+
+          <div class="author-box reveal">
+            <div class="author-avatar">11</div>
+            <div>
+              <div class="author-name">elevenOne Redaktion</div>
+              <div class="author-role">elevenOne AI Services · Wien, Österreich</div>
+            </div>
+          </div>
+
+          <div class="article-body reveal" style="margin-top:var(--s6);">
+
+            <p>
+              Österreichs mittelständische Unternehmen stehen unter einem Druck, der sich in
+              den letzten Jahren drastisch verschärft hat: Fachkräftemangel, steigende Lohnkosten
+              und ein Wettbewerb, der von großen Konzernen mit eigenen KI-Abteilungen bestimmt
+              wird. Gleichzeitig hält sich ein hartnäckiges Missverständnis – nämlich dass
+              künstliche Intelligenz erst dann nutzbar wird, wenn man ein eigenes IT-Team aufbaut
+              oder ein mehrjähriges Digitalisierungsprojekt startet.
+            </p>
+
+            <p class="highlight">
+              „Unsere Erfahrung zeigt: Der größte Fehler, den KMU machen, ist auf den
+              richtigen Moment zu warten. Den gibt es nicht. KI-Automatisierung ist kein
+              Großprojekt – sie ist ein Service, den man heute einschalten kann."
+            </p>
+
+            <h2>Das Firmenwagen-Prinzip für KI</h2>
+
+            <p>
+              Stellen Sie sich vor, Ihr Unternehmen bräuchte einen Fuhrpark – würden Sie
+              eine eigene Kfz-Werkstatt aufbauen? Wohl kaum. Sie mieten oder leasen, nutzen
+              die volle Leistung und überlassen Wartung und Infrastruktur dem Anbieter.
+              Genau dieses Prinzip wendet <strong>elevenOne AI Services</strong> auf
+              Geschäftsprozesse an: Sie mieten fertige KI-Automatisierungen aus unserer
+              Bibliothek, konfigurieren diese auf Ihre Abläufe – und schalten sie live.
+            </p>
+
+            <p>
+              Ohne Entwicklungsaufwand. Ohne monatelange Projekte. Ohne eigenes KI-Know-how.
+              Und dank der in Österreich gehosteten Infrastruktur vollständig DSGVO-konform.
+            </p>
+
+            <h2>Praxisbeispiele aus dem österreichischen Mittelstand</h2>
+
+            <p>
+              Ein Logistikunternehmen aus Wien überwacht heute automatisiert über 3.000
+              Lagerartikel auf Anomalien – und erhält Warnmeldungen, noch bevor ein Engpass
+              entsteht. Ein Qualitätsmanagement-Beratungsbüro in Graz erstellt ISO-konforme
+              Compliance-Dokumentationen, die früher zwei Arbeitstage pro Monat beansprucht
+              haben, heute vollautomatisch. Und ein Sachverständigenbüro in Innsbruck
+              strukturiert Gutachten im Tiefbau mit KI-Unterstützung – was früher stundenlanges
+              manuelles Eintippen von Messdaten bedeutete, dauert heute Minuten.
+            </p>
+
+            <p>
+              <strong>Was diese drei Unternehmen gemeinsam haben:</strong> Sie sind KMU mit
+              unter 25 Mitarbeitenden. Sie haben keine eigene IT-Entwicklung. Und sie sparen
+              im Schnitt 20 bis 30 Stunden pro Monat – Stunden, die jetzt in Kundenbeziehungen,
+              Qualität und Wachstum fließen.
+            </p>
+
+            <h2>Risikofreier Einstieg dank virtueller Testphase</h2>
+
+            <p>
+              Jeder Use Case durchläuft bei elevenOne eine strukturierte Testphase mit Ihren
+              echten Daten. Erst wenn Sie selbst überzeugt sind, schalten Sie den Prozess live.
+              Das Modell ist monatlich kündbar – keine Mindestlaufzeiten, keine
+              Implementierungskosten, kein Vendor-Lock-in.
+            </p>
+
+            <p>
+              Die Frage lautet nicht mehr: <em>„Können wir uns KI leisten?"</em><br/>
+              Die richtige Frage ist: <em>„Können wir es uns leisten, noch länger darauf zu verzichten?"</em>
+            </p>
+
+            <div class="word-count">// ca. 420 Wörter · elevenOne AI Services GmbH · Wien, Österreich</div>
+
+          </div>
+
+          <!-- CTA am Artikelende -->
+          <div style="margin-top:var(--s8);display:flex;gap:var(--s2);flex-wrap:wrap;" class="reveal">
+            <a href="demo.html" class="btn btn-primary btn-lg">Use Cases entdecken</a>
+            <a href="auth.html#register" class="btn btn-ghost btn-lg">Kostenlos registrieren</a>
+          </div>
+
+        </article>
+
+        <!-- ── Sidebar ────────────────────────────────────────── -->
+        <aside class="blog-sidebar reveal">
+
+          <!-- Top 5 Use Cases -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-title">// Top Use Cases</div>
+            <div class="sidebar-uc-list">
+              <div class="sidebar-uc-item">
+                <div>
+                  <div class="sidebar-uc-name">Rechnungsverarbeitung</div>
+                  <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Dokumentenverarbeitung</div>
+                </div>
+                <span class="badge badge-live">Beliebt</span>
+              </div>
+              <div class="sidebar-uc-item">
+                <div>
+                  <div class="sidebar-uc-name">Meeting-Protokoll KI</div>
+                  <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Prozessautomatisierung</div>
+                </div>
+                <span class="badge badge-live">Neu</span>
+              </div>
+              <div class="sidebar-uc-item">
+                <div>
+                  <div class="sidebar-uc-name">Lieferketten-Anomalie</div>
+                  <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Datenanalyse</div>
+                </div>
+              </div>
+              <div class="sidebar-uc-item">
+                <div>
+                  <div class="sidebar-uc-name">Berichte automatisieren</div>
+                  <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Datenanalyse</div>
+                </div>
+              </div>
+              <div class="sidebar-uc-item">
+                <div>
+                  <div class="sidebar-uc-name">Compliance-Doku</div>
+                  <div style="font-size:0.72rem;color:var(--text-muted);font-family:var(--font-mono);">Dokumentenverarbeitung</div>
+                </div>
+              </div>
+            </div>
+            <a href="demo.html" class="btn btn-secondary btn-sm" style="width:100%;margin-top:var(--s3);text-align:center;">
+              Alle 12 Use Cases →
+            </a>
+          </div>
+
+          <!-- Quick Facts -->
+          <div class="sidebar-widget">
+            <div class="sidebar-widget-title">// elevenOne AT</div>
+            <div style="display:flex;flex-direction:column;gap:0.75rem;font-size:0.85rem;">
+              <div style="display:flex;justify-content:space-between;">
+                <span style="color:var(--text-muted);">Standort</span>
+                <span style="color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem;">Wien, AT</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="color:var(--text-muted);">Hosting</span>
+                <span style="color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem;">🇦🇹 Österreich</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="color:var(--text-muted);">Datenschutz</span>
+                <span style="color:var(--accent-cyan);font-family:var(--font-mono);font-size:0.75rem;">DSGVO ✓</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;">
+                <span style="color:var(--text-muted);">Zertifizierung</span>
+                <span style="color:var(--text-primary);font-family:var(--font-mono);font-size:0.75rem;">ISO 27001</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="sidebar-widget" style="text-align:center;background:linear-gradient(135deg,rgba(200,168,75,0.08),rgba(0,229,204,0.04));">
+            <div class="sidebar-widget-title" style="margin-bottom:var(--s2);">// Kostenlos starten</div>
+            <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:var(--s3);line-height:1.6;">
+              Testen Sie alle Use Cases ohne Registrierung direkt im Browser.
+            </p>
+            <a href="auth.html#register" class="btn btn-primary btn-sm" style="width:100%;justify-content:center;">
+              Jetzt registrieren
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:1.5rem;">
+            <div class="nav-logo-mark">11</div>
+            <div>
+              <span class="nav-logo-text">elevenOne</span>
+              <span class="nav-logo-sub">AI Services</span>
+            </div>
+          </a>
+          <p>KI-Automatisierung als Service für den österreichischen Mittelstand. Mieten statt bauen – live in 48 Stunden.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Produkt</h4>
+          <ul>
+            <li><a href="demo.html">Demo Use Cases</a></li>
+            <li><a href="pricing.html">Preismodell</a></li>
+            <li><a href="demo.html">UC-Bibliothek</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Unternehmen</h4>
+          <ul>
+            <li><a href="about.html">Über uns</a></li>
+            <li><a href="contact.html">Kontakt</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="#">Impressum</a></li>
+            <li><a href="#">Datenschutz</a></li>
+            <li><a href="#">AGB</a></li>
+            <li><a href="#">Cookie-Einstellungen</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 elevenOne GmbH. Alle Rechte vorbehalten. | 🇦🇹 Gehostet in Österreich</p>
+        <p>DSGVO-konform · ISO 27001 · SOC 2 Type II</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/shader-hero.js"></script>
+</body>
+</html>

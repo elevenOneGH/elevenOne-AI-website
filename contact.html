@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kontakt zu elevenOne AI Services – Demo-Termin vereinbaren oder Fragen stellen." />
+  <title>Kontakt – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--s8);
+      align-items: start;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s2);
+      padding: var(--s3) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .contact-info-item:last-child { border-bottom: none; }
+
+    .contact-info-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+      background: var(--bg-elevated);
+    }
+
+    .response-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background: var(--accent-cyan-glow);
+      border: 1px solid var(--border-cyan);
+      border-radius: var(--r-sm);
+      padding: 0.5em 1em;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--accent-cyan);
+    }
+
+    .anrede-group {
+      display: flex;
+      gap: var(--s3);
+    }
+
+    .anrede-option {
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      cursor: pointer;
+    }
+
+    .anrede-option input[type="radio"] {
+      width: 16px;
+      height: 16px;
+      appearance: none;
+      border: 1px solid var(--border-default);
+      border-radius: 50%;
+      background: var(--bg-elevated);
+      cursor: pointer;
+      position: relative;
+      transition: all var(--t-fast) ease;
+    }
+
+    .anrede-option input[type="radio"]:checked {
+      border-color: var(--accent-gold);
+      border-width: 5px;
+    }
+
+    .anrede-option span {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link">Preise</a>
+        <a href="about.html" class="nav-link">Über uns</a>
+        <a href="contact.html" class="nav-link active">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="navLoginBtn">Anmelden</a>
+        <a href="auth.html#register" class="btn btn-primary btn-sm">Registrieren</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="auth.html" class="btn btn-ghost">Anmelden</a>
+      <a href="auth.html#register" class="btn btn-primary">Kostenlos registrieren</a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero" style="padding-bottom:var(--s8);">
+    <canvas class="page-hero-canvas" data-shader></canvas>
+    <div class="container">
+      <p class="label-mono reveal">Kontakt</p>
+      <div class="section-divider centered" style="margin-top:1rem;"></div>
+      <h1 class="display-xl reveal reveal-delay-1" style="margin-top:1.5rem;">
+        <span class="ph-hl-white">Sprechen Sie</span><br/>
+        <span class="ph-hl-gold">mit uns.</span>
+      </h1>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Formular -->
+        <div class="card card-elevated reveal">
+          <h2 class="display-md" style="font-size:1.5rem;margin-bottom:var(--s4);">Nachricht senden</h2>
+
+          <form id="contactForm" novalidate>
+            <div style="display:flex;flex-direction:column;gap:var(--s3);">
+
+              <!-- Anrede -->
+              <div class="form-group">
+                <label class="form-label">Anrede</label>
+                <div class="anrede-group">
+                  <label class="anrede-option">
+                    <input type="radio" name="anrede" value="Herr" checked />
+                    <span>Herr</span>
+                  </label>
+                  <label class="anrede-option">
+                    <input type="radio" name="anrede" value="Frau" />
+                    <span>Frau</span>
+                  </label>
+                  <label class="anrede-option">
+                    <input type="radio" name="anrede" value="Divers" />
+                    <span>Divers</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Name -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactFirstName">Vorname *</label>
+                  <input type="text" id="contactFirstName" class="form-control" placeholder="Max" />
+                  <span class="form-error" id="contactFirstNameError"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactLastName">Nachname *</label>
+                  <input type="text" id="contactLastName" class="form-control" placeholder="Mustermann" />
+                  <span class="form-error" id="contactLastNameError"></span>
+                </div>
+              </div>
+
+              <!-- Firma / Rolle -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactCompany">Unternehmen</label>
+                  <input type="text" id="contactCompany" class="form-control" placeholder="Muster GmbH" />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactRole">Rolle / Position</label>
+                  <input type="text" id="contactRole" class="form-control" placeholder="Geschäftsführer" />
+                </div>
+              </div>
+
+              <!-- Kontaktdaten -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contactEmail">E-Mail *</label>
+                  <input type="email" id="contactEmail" class="form-control" placeholder="max@muster.de" />
+                  <span class="form-error" id="contactEmailError"></span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactPhone">Telefon (optional)</label>
+                  <input type="tel" id="contactPhone" class="form-control" placeholder="+49 89 123456" />
+                </div>
+              </div>
+
+              <!-- Betreff -->
+              <div class="form-group">
+                <label class="form-label" for="contactSubject">Betreff *</label>
+                <select id="contactSubject" class="form-control">
+                  <option value="">Bitte wählen...</option>
+                  <option value="demo">Demo-Termin vereinbaren</option>
+                  <option value="allgemein">Allgemeine Anfrage</option>
+                  <option value="technisch">Technische Frage</option>
+                  <option value="enterprise">Enterprise-Anfrage</option>
+                  <option value="partnership">Partnerschaft / Kooperation</option>
+                  <option value="presse">Presse & Medien</option>
+                </select>
+                <span class="form-error" id="contactSubjectError"></span>
+              </div>
+
+              <!-- Nachricht -->
+              <div class="form-group">
+                <label class="form-label" for="contactMessage">Ihre Nachricht *</label>
+                <textarea id="contactMessage" class="form-control" placeholder="Wie können wir Ihnen helfen?" style="min-height:150px;"></textarea>
+                <span class="form-error" id="contactMessageError"></span>
+              </div>
+
+              <!-- Datenschutz -->
+              <label class="form-check">
+                <input type="checkbox" id="contactDsgvo" required />
+                <span class="form-check-label">
+                  Ich stimme der Verarbeitung meiner Daten gemäß der
+                  <a href="#" style="color:var(--accent-gold);">Datenschutzerklärung</a> zu. *
+                </span>
+              </label>
+              <span class="form-error" id="contactDsgvoError"></span>
+
+              <span class="form-error" id="contactGeneralError" style="text-align:center;"></span>
+
+              <button type="submit" class="btn btn-primary" style="width:100%;" id="contactSubmitBtn">
+                Nachricht senden
+              </button>
+            </div>
+          </form>
+
+          <!-- Erfolgs-Nachricht -->
+          <div id="contactSuccess" style="display:none;text-align:center;padding:var(--s6);">
+            <div style="font-size:3rem;margin-bottom:1rem;">✓</div>
+            <h3 class="display-md" style="font-size:1.5rem;color:var(--accent-cyan);margin-bottom:1rem;">
+              Nachricht gesendet!
+            </h3>
+            <p style="color:var(--text-secondary);margin-bottom:var(--s4);">
+              Vielen Dank für Ihre Nachricht. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
+            </p>
+            <a href="index.html" class="btn btn-ghost">← Zurück zur Startseite</a>
+          </div>
+        </div>
+
+        <!-- Kontaktinformationen -->
+        <div>
+          <div class="reveal" style="margin-bottom:var(--s4);">
+            <div class="response-badge">
+              <span>●</span> Antwort innerhalb 24 Stunden
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📍</div>
+              <div>
+                <div class="label-mono" style="margin-bottom:0.25rem;">Adresse</div>
+                <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.6;">
+                  elevenOne GmbH<br/>
+                  Maximilianstraße 11<br/>
+                  80539 München
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📧</div>
+              <div>
+                <div class="label-mono" style="margin-bottom:0.25rem;">E-Mail</div>
+                <a href="mailto:info@elevenone.ai" style="font-size:0.875rem;color:var(--accent-gold);">
+                  info@elevenone.ai
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📞</div>
+              <div>
+                <div class="label-mono" style="margin-bottom:0.25rem;">Telefon</div>
+                <a href="tel:+498912345678" style="font-size:0.875rem;color:var(--text-secondary);">
+                  +49 89 123 456 78
+                </a>
+                <p class="label-mono-muted" style="margin-top:0.25rem;">Mo–Fr, 9:00–17:00 Uhr</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal" style="margin-top:var(--s4);">
+            <h4 class="label-mono" style="margin-bottom:var(--s2);">Demo-Termin vereinbaren</h4>
+            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin-bottom:var(--s3);">
+              Möchten Sie eine persönliche Demo? Wählen Sie direkt einen
+              freien Termin aus unserem Kalender.
+            </p>
+            <a href="#" class="btn btn-secondary" style="width:100%;" onclick="event.preventDefault(); document.getElementById('contactSubject').value='demo'; document.getElementById('contactMessage').focus();">
+              📅 Demo-Termin buchen
+            </a>
+          </div>
+
+          <div class="card reveal reveal-delay-1" style="margin-top:var(--s3);">
+            <h4 class="label-mono" style="margin-bottom:var(--s2);">Enterprise-Anfrage</h4>
+            <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;margin-bottom:var(--s3);">
+              Für individuelle Use Cases, On-Premise-Deployments
+              und maßgeschneiderte Lösungen sprechen Sie direkt
+              mit unserem Enterprise-Team.
+            </p>
+            <a href="mailto:enterprise@elevenone.ai" class="btn btn-ghost" style="width:100%;">
+              enterprise@elevenone.ai
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="margin-top:var(--s12);">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:1.5rem;">
+            <div class="nav-logo-mark">11</div>
+            <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+          </a>
+          <p>KI-Automatisierung als Service für den österreichischen Mittelstand.</p>
+        </div>
+        <div class="footer-col"><h4>Produkt</h4><ul><li><a href="demo.html">Demo Use Cases</a></li><li><a href="pricing.html">Preismodell</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+        <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="about.html">Über uns</a></li><li><a href="contact.html">Kontakt</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+        <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">AGB</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 elevenOne GmbH. Alle Rechte vorbehalten. | 🇦🇹 Gehostet in Österreich</p>
+        <p>DSGVO-konform · ISO 27001 · SOC 2 Type II</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/contact.js"></script>
+  <script type="module" src="assets/js/shader-hero.js"></script>
+</body>
+</html>

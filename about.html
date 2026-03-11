@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Über elevenOne AI Services – KI-Automatisierung für den österreichischen Mittelstand." />
+  <title>Über uns – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .team-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-lg);
+      padding: var(--s4);
+      transition: border-color var(--t-base) ease, transform var(--t-base) var(--ease-expo);
+    }
+
+    .team-card:hover {
+      border-color: var(--border-default);
+      transform: translateY(-4px);
+    }
+
+    .team-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: var(--r-md);
+      border: 2px solid var(--border-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      letter-spacing: 0.04em;
+      margin-bottom: var(--s3);
+      background: var(--bg-elevated);
+    }
+
+    .principle-item {
+      display: flex;
+      gap: var(--s3);
+      padding: var(--s4) 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .principle-item:last-child { border-bottom: none; }
+
+    .principle-number {
+      font-family: var(--font-display);
+      font-size: 3rem;
+      color: rgba(200,168,75,0.15);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 60px;
+    }
+
+    .tech-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4em;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      padding: 0.35em 0.8em;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--r-sm);
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav" id="siteNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">11</div>
+        <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+      </a>
+      <div class="nav-links">
+        <a href="demo.html" class="nav-link">Demo</a>
+        <a href="pricing.html" class="nav-link">Preise</a>
+        <a href="about.html" class="nav-link active">Über uns</a>
+        <a href="contact.html" class="nav-link">Kontakt</a>
+      </div>
+      <div class="nav-actions">
+        <a href="auth.html" class="btn btn-ghost btn-sm" id="navLoginBtn">Anmelden</a>
+        <a href="auth.html#register" class="btn btn-primary btn-sm">Registrieren</a>
+      </div>
+      <button class="nav-hamburger" id="navHamburger"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="navMobile">
+    <a href="demo.html" class="nav-link">Demo</a>
+    <a href="pricing.html" class="nav-link">Preise</a>
+    <a href="about.html" class="nav-link">Über uns</a>
+    <a href="contact.html" class="nav-link">Kontakt</a>
+    <div style="margin-top:1rem;display:flex;flex-direction:column;gap:0.75rem;">
+      <a href="auth.html" class="btn btn-ghost">Anmelden</a>
+      <a href="auth.html#register" class="btn btn-primary">Kostenlos registrieren</a>
+    </div>
+  </div>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <canvas class="page-hero-canvas" data-shader></canvas>
+    <div class="container">
+      <p class="label-mono reveal">Über uns</p>
+      <div class="section-divider centered" style="margin-top:1rem;"></div>
+      <h1 class="display-xl reveal reveal-delay-1" style="margin-top:1.5rem;">
+        <span class="ph-hl-white">Wir machen KI</span><br/>
+        <span class="ph-hl-gold">zugänglich.</span>
+      </h1>
+      <p class="body-lg reveal reveal-delay-2" style="color:var(--text-secondary);max-width:560px;margin:1.5rem auto 0;">
+        elevenOne AI Services wurde gegründet, um KI-Automatisierung
+        für den österreichischen Mittelstand praktisch und bezahlbar zu machen.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="section-sm" style="padding-top:0;">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);align-items:center;max-width:960px;margin:0 auto;">
+        <div>
+          <p class="label-mono reveal">Unsere Mission</p>
+          <div class="section-divider" style="margin-top:1rem;margin-bottom:1.5rem;"></div>
+          <h2 class="display-md reveal reveal-delay-1" style="margin-bottom:var(--s4);">
+            KI-Automatisierung<br/>für jeden Betrieb
+          </h2>
+          <p class="reveal reveal-delay-2" style="color:var(--text-secondary);line-height:1.8;margin-bottom:var(--s3);">
+            Während Großkonzerne seit Jahren von KI profitieren, fehlt dem Mittelstand
+            oft das Know-how, das Budget und die Ressourcen für eigene KI-Projekte.
+          </p>
+          <p class="reveal reveal-delay-3" style="color:var(--text-secondary);line-height:1.8;">
+            Wir haben elevenOne gegründet, um das zu ändern. Mit unserem AIaaS-Modell
+            können Unternehmen jeder Größe sofort von KI-Automatisierung profitieren –
+            ohne Investitionsrisiko, ohne IT-Expertise, ohne Entwicklungsaufwand.
+          </p>
+        </div>
+        <div class="reveal reveal-delay-1">
+          <div class="card card-elevated" style="text-align:center;padding:var(--s8);">
+            <div style="font-family:var(--font-display);font-size:5rem;color:var(--accent-gold);line-height:1;">2023</div>
+            <div class="label-mono" style="margin:0.5rem 0 1.5rem;">Gegründet in München</div>
+            <div class="divider"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s4);margin-top:var(--s4);">
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--accent-cyan);">12+</div>
+                <div class="label-mono-muted">Use Cases</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--accent-cyan);">50+</div>
+                <div class="label-mono-muted">Kunden</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--accent-gold);">48h</div>
+                <div class="label-mono-muted">Time-to-Live</div>
+              </div>
+              <div>
+                <div style="font-family:var(--font-display);font-size:2.5rem;color:var(--accent-gold);">🇩🇪</div>
+                <div class="label-mono-muted">Made in Germany</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Unser Ansatz (3 Prinzipien) -->
+  <section class="section" style="background: var(--bg-surface);">
+    <div class="container" style="max-width:760px;">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <p class="label-mono reveal">Unsere Prinzipien</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">Unser Ansatz</h2>
+      </div>
+
+      <div>
+        <div class="principle-item reveal">
+          <div class="principle-number">01</div>
+          <div>
+            <h3 class="display-md" style="font-size:1.4rem;margin-bottom:0.75rem;color:var(--accent-gold);">Transparenz</h3>
+            <p style="color:var(--text-secondary);line-height:1.75;">
+              Keine versteckten Kosten, keine Lock-in-Effekte. Was ein Use Case macht,
+              können Sie vorher in der Demo vollständig testen. Was er kostet, steht klar
+              auf der Rechnung. Was mit Ihren Daten passiert, regelt unser AVV.
+            </p>
+          </div>
+        </div>
+
+        <div class="principle-item reveal">
+          <div class="principle-number">02</div>
+          <div>
+            <h3 class="display-md" style="font-size:1.4rem;margin-bottom:0.75rem;color:var(--accent-gold);">Verlässlichkeit</h3>
+            <p style="color:var(--text-secondary);line-height:1.75;">
+              KI-Automatisierungen müssen verlässlich funktionieren – nicht nur beim ersten Lauf.
+              Deshalb durchläuft jeder Use Case eine obligatorische Testphase, bevor er produktiv geht.
+              Unsere Infrastruktur ist auf 99,9% Uptime ausgelegt.
+            </p>
+          </div>
+        </div>
+
+        <div class="principle-item reveal">
+          <div class="principle-number">03</div>
+          <div>
+            <h3 class="display-md" style="font-size:1.4rem;margin-bottom:0.75rem;color:var(--accent-gold);">Partnerschaft</h3>
+            <p style="color:var(--text-secondary);line-height:1.75;">
+              Wir sehen uns nicht als Software-Lieferant, sondern als langfristiger Partner
+              für die Digitalisierung Ihrer Prozesse. Ihr Erfolg ist unser Erfolg –
+              deshalb sind wir bei Konfiguration, Test und Betrieb an Ihrer Seite.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Das Team -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:var(--s8);">
+        <p class="label-mono reveal">Das Team</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-lg reveal reveal-delay-1" style="margin-top:1.5rem;">
+          Menschen hinter<br/>elevenOne
+        </h2>
+      </div>
+
+      <div class="grid-3" style="max-width:900px;margin:0 auto;">
+        <div class="team-card reveal">
+          <div class="team-avatar" style="color:var(--accent-gold);">MK</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:0.04em;margin-bottom:0.3rem;">Markus Klein</h3>
+          <p class="label-mono" style="margin-bottom:var(--s2);">CEO & Co-Founder</p>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;">
+            15 Jahre Erfahrung in Prozessautomatisierung und Enterprise-Software.
+            Vorher VP Engineering bei einem deutschen B2B-SaaS-Unternehmen.
+          </p>
+        </div>
+
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-avatar" style="color:var(--accent-cyan);">SL</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:0.04em;margin-bottom:0.3rem;">Sandra Liu</h3>
+          <p class="label-mono" style="margin-bottom:var(--s2);">CTO & Co-Founder</p>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;">
+            Spezialistin für Large Language Models und KI-Systemarchitektur.
+            Promotion in Informatik an der TU München. Vorher Google DeepMind.
+          </p>
+        </div>
+
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-avatar" style="color:var(--accent-amber);">TW</div>
+          <h3 style="font-family:var(--font-display);font-size:1.3rem;letter-spacing:0.04em;margin-bottom:0.3rem;">Thomas Weber</h3>
+          <p class="label-mono" style="margin-bottom:var(--s2);">COO</p>
+          <p style="font-size:0.875rem;color:var(--text-secondary);line-height:1.65;">
+            Betriebswirt und KI-Ethik-Experte. Verantwortet Operations, Compliance und
+            Customer Success. Vorher Unternehmensberatung im Bereich Digital Transformation.
+          </p>
+        </div>
+      </div>
+
+      <p class="reveal" style="text-align:center;margin-top:var(--s6);color:var(--text-secondary);font-style:italic;">
+        Hinter uns steht ein Team von 12 Spezialisten in den Bereichen
+        KI, Software-Engineering, Customer Success und Compliance.
+      </p>
+    </div>
+  </section>
+
+  <!-- Technologie -->
+  <section class="section-sm" style="background: var(--bg-surface);">
+    <div class="container" style="max-width:760px;">
+      <div style="text-align:center;margin-bottom:var(--s6);">
+        <p class="label-mono reveal">Technologie</p>
+        <div class="section-divider centered" style="margin-top:1rem;"></div>
+        <h2 class="display-md reveal reveal-delay-1" style="margin-top:1.5rem;">
+          Gebaut auf bewährten Technologien
+        </h2>
+        <p class="reveal reveal-delay-2" style="color:var(--text-secondary);margin-top:1rem;line-height:1.7;">
+          Wir setzen auf State-of-the-Art LLM-Technologie kombiniert mit
+          bewährter Enterprise-Integration – kein Vendor Lock-in, volle Flexibilität.
+        </p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:center;" class="reveal">
+        <span class="tech-chip">Large Language Models</span>
+        <span class="tech-chip">Computer Vision / OCR</span>
+        <span class="tech-chip">Natural Language Processing</span>
+        <span class="tech-chip">REST API Integration</span>
+        <span class="tech-chip">Webhook Automation</span>
+        <span class="tech-chip">ISO 27001 Hosting</span>
+        <span class="tech-chip">DSGVO-konform</span>
+        <span class="tech-chip">Serverless Architecture</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner reveal" style="text-align:center;">
+        <h2 class="display-lg" style="margin-bottom:1.5rem;">
+          Sprechen Sie mit uns.
+        </h2>
+        <p style="color:var(--text-secondary);max-width:480px;margin:0 auto 2rem;font-style:italic;">
+          Haben Sie Fragen zu unserem Unternehmen, unseren Use Cases oder
+          einem individuellen Angebot?
+        </p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;">
+          <a href="contact.html" class="btn btn-primary btn-lg">Kontakt aufnehmen</a>
+          <a href="demo.html" class="btn btn-ghost btn-lg">Demo ansehen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:1.5rem;">
+            <div class="nav-logo-mark">11</div>
+            <div><span class="nav-logo-text">elevenOne</span><span class="nav-logo-sub">AI Services</span></div>
+          </a>
+          <p>KI-Automatisierung als Service für den österreichischen Mittelstand.</p>
+        </div>
+        <div class="footer-col"><h4>Produkt</h4><ul><li><a href="demo.html">Demo Use Cases</a></li><li><a href="pricing.html">Preismodell</a></li><li><a href="dashboard.html">Dashboard</a></li></ul></div>
+        <div class="footer-col"><h4>Unternehmen</h4><ul><li><a href="about.html">Über uns</a></li><li><a href="contact.html">Kontakt</a></li><li><a href="blog.html">Blog</a></li></ul></div>
+        <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="#">AGB</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 elevenOne GmbH. Alle Rechte vorbehalten. | 🇦🇹 Gehostet in Österreich</p>
+        <p>DSGVO-konform · ISO 27001 · SOC 2 Type II</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <script type="module" src="assets/js/app.js"></script>
+  <script type="module" src="assets/js/shader-hero.js"></script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Dashboard – elevenOne AI Services</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/dashboard.css" />
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- Mobile Sidebar-Toggle -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+
+    <!-- ══ SIDEBAR ════════════════════════════════════════════ -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <a href="index.html" class="nav-logo">
+          <div class="nav-logo-mark">11</div>
+          <div>
+            <span class="nav-logo-text">elevenOne</span>
+            <span class="nav-logo-sub">AI Services</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="sidebar-section-label">Hauptmenü</div>
+        <a href="dashboard.html" class="sidebar-nav-item active" data-view="overview">
+          <span class="sidebar-nav-icon">⊞</span> Übersicht
+        </a>
+        <a href="dashboard.html" class="sidebar-nav-item" data-view="my-ucs">
+          <span class="sidebar-nav-icon">◈</span> Meine Use Cases
+        </a>
+        <a href="demo.html" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">+</span> Neuen UC mieten
+        </a>
+
+        <div class="sidebar-section-label" style="margin-top:var(--s2);">Konto</div>
+        <a href="contact.html" class="sidebar-nav-item">
+          <span class="sidebar-nav-icon">?</span> Support
+        </a>
+        <button class="sidebar-nav-item" id="logoutBtn" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;color:var(--text-muted);">
+          <span class="sidebar-nav-icon">→</span> Abmelden
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar" id="userAvatarSidebar">MG</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-company" id="userCompanySidebar">Mein Unternehmen</div>
+            <div class="sidebar-user-email" id="userEmailSidebar">nutzer@example.de</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ══ MAIN CONTENT ════════════════════════════════════════ -->
+    <main class="dashboard-main">
+
+      <!-- Header -->
+      <div class="dashboard-header">
+        <div>
+          <div class="dashboard-greeting" id="dashboardGreeting">Guten Morgen</div>
+          <div class="dashboard-date" id="dashboardDate">Laden...</div>
+        </div>
+        <div style="display:flex;gap:var(--s2);flex-wrap:wrap;">
+          <a href="demo.html" class="btn btn-secondary btn-sm">+ Use Case hinzufügen</a>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <div class="stat-label">Aktive Use Cases</div>
+          <div class="stat-value cyan" id="statLive">–</div>
+          <div class="stat-trend" id="statLiveTrend">Live</div>
+          <div class="stat-bg-number">UC</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">In Testphase</div>
+          <div class="stat-value amber" id="statTest">–</div>
+          <div class="stat-trend">In Konfiguration / Test</div>
+          <div class="stat-bg-number">T</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Vorgänge (Monat)</div>
+          <div class="stat-value gold" id="statRuns">–</div>
+          <div class="stat-trend">Automatisierte Ausführungen</div>
+          <div class="stat-bg-number">→</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Gesparte Stunden</div>
+          <div class="stat-value cyan" id="statHours">–</div>
+          <div class="stat-trend">Geschätzt diesen Monat</div>
+          <div class="stat-bg-number">h</div>
+        </div>
+      </div>
+
+      <!-- UC Section Header -->
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--s4);">
+        <h2 class="display-md" style="font-size:1.3rem;">Meine Use Cases</h2>
+        <a href="demo.html" class="btn btn-ghost btn-sm">Alle 12 Use Cases →</a>
+      </div>
+
+      <!-- UC Grid -->
+      <div class="dashboard-uc-grid" id="dashboardUCGrid">
+        <!-- Wird durch dashboard.js befüllt -->
+      </div>
+
+      <!-- Leerer Zustand -->
+      <div id="emptyState" class="empty-state" style="display:none;">
+        <div class="empty-state-icon">◈</div>
+        <h3 class="display-md" style="font-size:1.3rem;margin-bottom:1rem;">Noch keine Use Cases</h3>
+        <p style="color:var(--text-secondary);margin-bottom:var(--s4);">
+          Entdecken Sie unsere Use Case Bibliothek und mieten Sie
+          Ihren ersten KI-Automatisierungsprozess.
+        </p>
+        <a href="demo.html" class="btn btn-primary">Use Cases entdecken</a>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- ══ CONFIG PANEL ═══════════════════════════════════════════ -->
+  <div class="panel-overlay" id="panelOverlay"></div>
+  <div class="config-panel" id="configPanel">
+    <div class="panel-header">
+      <div>
+        <div id="panelCategory" class="category-tag" style="margin-bottom:0.5rem;"></div>
+        <h3 class="display-md" id="panelTitle" style="font-size:1.2rem;"></h3>
+        <div id="panelBadge" style="margin-top:0.5rem;"></div>
+      </div>
+      <button class="modal-close" id="panelClose">✕</button>
+    </div>
+
+    <div class="panel-body">
+
+      <!-- Konfiguration -->
+      <div class="panel-section" id="panelConfigSection">
+        <div class="panel-section-title">// Konfiguration</div>
+        <div id="panelConfigForm" style="display:flex;flex-direction:column;gap:var(--s3);">
+          <!-- Wird durch dashboard.js befüllt -->
+        </div>
+      </div>
+
+      <!-- Testphase -->
+      <div class="panel-section" id="panelTestSection">
+        <div class="panel-section-title">// Testphase</div>
+
+        <div id="panelTestProgress" style="margin-bottom:var(--s3);">
+          <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;">
+            <span class="label-mono-muted">Testläufe abgeschlossen</span>
+            <span class="label-mono" id="panelTestCount">0 / 5</span>
+          </div>
+          <div class="test-progress-bar">
+            <div class="test-progress-fill" id="panelTestProgressFill" style="width:0%;"></div>
+          </div>
+        </div>
+
+        <div class="test-run-output" id="panelTestOutput">
+          <span style="color:var(--text-muted);">// Noch keine Testläufe durchgeführt.
+// Konfiguration speichern und Testlauf starten.</span>
+        </div>
+
+        <div id="panelTestActions" style="display:flex;gap:var(--s2);margin-top:var(--s3);flex-wrap:wrap;">
+          <button class="lifecycle-btn lifecycle-btn-start" id="runTestBtn">
+            ▶ Testlauf starten
+          </button>
+          <button class="lifecycle-btn lifecycle-btn-live" id="goLiveBtn" style="display:none;">
+            ✓ Live schalten
+          </button>
+        </div>
+      </div>
+
+      <!-- Live-Metriken (nur wenn Live) -->
+      <div class="panel-section" id="panelLiveSection" style="display:none;">
+        <div class="panel-section-title">// Live-Metriken</div>
+        <div class="live-metrics" id="panelLiveMetrics">
+          <!-- Wird durch dashboard.js befüllt -->
+        </div>
+      </div>
+
+    </div>
+
+    <div class="panel-footer">
+      <div style="display:flex;gap:var(--s2);">
+        <button class="btn btn-primary" style="flex:1;" id="saveConfigBtn">
+          Konfiguration speichern
+        </button>
+        <button class="btn btn-ghost" id="cancelPanelBtn">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>
